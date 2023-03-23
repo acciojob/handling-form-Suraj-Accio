@@ -1,13 +1,21 @@
-
-import React from "react";
-import './../styles/App.css';
+import React, { useState, useEffect } from "react";
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [value, setValue] = useState("");
 
-export default App
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  useEffect(() => {
+    console.log("value changed:", value);
+  }, [value]);
+
+  return (
+    <form>
+      <input type="text" value={value} onChange={handleChange} />
+    </form>
+  );
+};
+
+export default App;
